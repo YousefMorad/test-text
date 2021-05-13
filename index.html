@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <label for="text">Enter your text: </label>
+
+    <textarea id="text" name="text" rows="4" cols="50"></textarea> 
+    <button type="button" onclick="convertText()">Convert</button> 
+    <div>
+        new text : <p id="newText"></p>
+    </div>
+
+    <script>
+        function convertText (){
+            var code = "\u0360";
+            var currText = document.getElementById('text').value
+            console.log(currText)
+            var newText = "";
+
+            for(var i = 0; i < currText.length; i++){
+                newText += currText[i] + code
+            }
+
+            document.getElementById('newText').innerHTML = newText;
+        }
+    </script>
+</body>
+</html>
