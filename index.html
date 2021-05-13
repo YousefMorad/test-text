@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script> 
+    <script src="/keywords.js"></script>
+    <script src="/script.js"></script>    
+    <title>Tajawaz</title>
 </head>
 <body>
-    <label for="text">Enter your text: </label>
+    <div class="form-group col-sm">
+        <label for="exampleFormControlTextarea1"><h3>Enter your text below</h3></label>
+        <textarea id="userText" class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
+        <button id="submit-text" type="button" class="btn btn-success" onclick="formatWords()">Done</button>
+      </div>
+      <br><br>
+      
+      <div style="display: none; flex-direction: row-reverse; flex-wrap: wrap;" id="wordsBox"></div>
+      <br><br>
+      
+      <div id="control-btns" class="col-sm" style="display: none;">
+          <button type="button" class="btn btn-warning" onclick="clearSelection()">Clear selection</button>
+          <button type="button" class="btn btn-info" onclick="selectKeywords()">Select keywords</button>
+          <button type="button" class="btn btn-success" onclick="convertText()">Done</button>
+      </div>
+      <h5 class="col-sm" id="newText" style="display: none;"></h5>
 
-    <textarea id="text" name="text" rows="4" cols="50"></textarea> 
-    <button type="button" onclick="convertText()">Convert</button> 
-    <div>
-        new text : <p id="newText"></p>
-    </div>
 
-    <script>
-        function convertText (){
-            document.getElementById('newText').innerHTML = "";
-            var codes = ["\u0360", "\u06C1", "\u064D", "\u0640\u0640"]
-        
-            var currText = document.getElementById('text').value
-            var newText = "";
-
-            for(var j = 0; j < codes.length; j++){
-                for(var i = 0; i < currText.length-1; i++){
-                    newText += currText[i] + codes[j]
-                }
-                newText += currText[currText.length-1];
-
-                document.getElementById('newText').innerHTML += j + "=> " + newText + "<br>";
-                newText = "";
-            }
-        }
-    </script>
 </body>
 </html>
