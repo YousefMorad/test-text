@@ -15,16 +15,21 @@
 
     <script>
         function convertText (){
-            var code = "\u2323";
+            document.getElementById('newText').innerHTML = "";
+            var codes = ["\u0360", "\u06C1", "\u064D", "\u0640\u0640"]
+        
             var currText = document.getElementById('text').value
             var newText = "";
 
-            for(var i = 0; i < currText.length-1; i++){
-                newText += currText[i] + code
-            }
-            newText += currText[currText.length-1];
+            for(var j = 0; j < codes.length; j++){
+                for(var i = 0; i < currText.length-1; i++){
+                    newText += currText[i] + codes[j]
+                }
+                newText += currText[currText.length-1];
 
-            document.getElementById('newText').innerHTML = newText;
+                document.getElementById('newText').innerHTML += j + "=> " + newText + "<br>";
+                newText = "";
+            }
         }
     </script>
 </body>
