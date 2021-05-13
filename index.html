@@ -15,13 +15,14 @@
 
     <script>
         function convertText (){
-            var code = "\u0360";
+            var code = "\u2323";
             var currText = document.getElementById('text').value
             var newText = "";
 
-            for(var i = 0; i < currText.length; i++){
+            for(var i = 0; i < currText.length-1; i++){
                 newText += currText[i] + code
             }
+            newText += currText[currText.length-1];
 
             document.getElementById('newText').innerHTML = newText;
         }
