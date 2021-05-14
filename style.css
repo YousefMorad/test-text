@@ -8,14 +8,3 @@
     border-radius: 0.2em;
     padding-top: 5px;
 }
-
-#newText{
-    width: auto;
-    margin-top: 0.8em;
-    background-color: rgb(214, 214, 214);
-    border-radius: 0.2em;
-    flex-direction: row-reverse;
-    flex-wrap: wrap;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}

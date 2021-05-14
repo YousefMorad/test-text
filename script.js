@@ -34,25 +34,28 @@ function selectWord(btn){
 }
 
 function convertText(){
-    var newText = document.getElementById('newText')
-    var newWords = []
+    var newTextBox = document.getElementById('newTextBox')
+    var codes = ['\u0360', '\u06C1', '\u064D', '\u0332', '\u0300']
 
-    for(var word of wordsList){
-        if (wordsDict[word]){
-            newWords.push(flip(word));
-        }else{
-            newWords.push(word);
+    newTextBox.innerHTML = ""
+    for (var code of codes){
+        var newWords = []
+        for(var word of wordsList){
+            if (wordsDict[word]){
+                newWords.push(flip(word, code));
+            }else{
+                newWords.push(word);
+            }
         }
-    }
 
-    newText.innerHTML = newWords.join(' ')
-    newText.style.display = "flex"
+        newTextBox.innerHTML += "<h5 style=\"background-color: cadetblue; margin-top: 0.5em; padding:5px; display:flex; flex-direction:row-reverse;\">" + newWords.join(" ") + "</h5>"
+    }
 }
 
-function flip(word){
+function flip(word, code){
     var newWord = ""
     for(var i = 0; i< word.length; i++){
-        newWord += word[i] + '\u0360'
+        newWord += word[i] + code
     }
     return newWord;
 }
