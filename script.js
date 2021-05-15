@@ -13,16 +13,23 @@ function formatWords (){
     }
 
     word_choice_container.style.display = "grid"
-    document.getElementById('control-btns').style.display = "block"
+    word_choice_container.scrollIntoView()
+    document.getElementById('ctrl-btns').style.display = "block"
+
+    if(userText.length == 0){
+        word_choice_container.style.display = "none"
+        document.getElementById('ctrl-btns').style.display = "none"
+        document.getElementById('newTextBox').style.display = "none"
+    }
 }
 
 function selectWord(btn){
     btns = document.querySelectorAll('.wordbtn')
-    if(btn.classList.contains("word-btn-red")){
+    if(btn.classList.contains("word-btn-selected")){
         wordsDict[btn.innerHTML] = 0;
         for(var button of btns){
             if(button.innerHTML == btn.innerHTML){
-                button.classList.remove("word-btn-red")
+                button.classList.remove("word-btn-selected")
             }
         }
     }else{
@@ -30,7 +37,7 @@ function selectWord(btn){
         for(var button of btns){
             if(button.innerHTML == btn.innerHTML){
                 localStorage[btn.innerHTML] = 'true'
-                button.classList.add("word-btn-red")
+                button.classList.add("word-btn-selected")
             }
         }
     }
@@ -51,8 +58,13 @@ function convertText(){
             }
         }
 
-        newTextBox.innerHTML += "<h5 style=\"background-color: cadetblue; margin-top: 0.5em; padding:5px; display:flex; flex-direction:row-reverse;\">" + newWords.join(" ") + "</h5>"
+        newTextBox.innerHTML += "<div class=\"decoratedText rtl\" onClick=\"copyDecoration(this)\">" + newWords.join(" ") + "</div>"
     }
+    var oldArRes = oldArabic();
+    newTextBox.innerHTML += "<div class=\"decoratedText rtl\" onClick=\"copyDecoration(this)\">" + oldArRes.join(" ") + "</div>"
+    document.getElementById('newTextBox').style.display = "block"
+    document.getElementById('newTextBox').scrollIntoView()
+
 }
 
 function flip(word, code){
@@ -63,11 +75,34 @@ function flip(word, code){
     return newWord;
 }
 
+function oldArabic(){
+    var newWords = []
+
+    for(var word of wordsList){
+        if(wordsDict[word]){
+            console.log(word)
+            var newWord = word
+            for(var letter of word){
+                if (letter in LETTERS_DICT){
+                    console.log(letter, LETTERS_DICT[letter])
+                    newWord = newWord.split(letter).join(LETTERS_DICT[letter])
+                    console.log(newWord)
+                }
+            }
+            newWords.push(newWord)
+        }else{
+            newWords.push(word)
+        }
+    }
+
+    return newWords
+}
+
 function clearSelection(){
     var btns = document.querySelectorAll('.wordbtn')
     
     for(var btn of btns){
-        btn.classList.remove("word-btn-red")
+        btn.classList.remove("word-btn-selected")
         wordsDict[btn.innerHTML] = 0;
     }
 }
@@ -77,7 +112,7 @@ function selectKeywords(){
     
     for(var btn of btns){
         if(keywords.includes(btn.innerHTML) || localStorage[btn.innerHTML] == 'true'){
-            btn.classList.add("word-btn-red")
+            btn.classList.add("word-btn-selected")
             wordsDict[btn.innerHTML] = 1;
         }
     }
@@ -86,3 +121,11 @@ function selectKeywords(){
 const viewResult = (result) => {
     document.getElementById('view-box').innerHTML = result;
 };
+
+function copyDecoration(box){
+    var range = document.createRange();
+    range.selectNode(box);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+    document.execCommand("copy");
+}

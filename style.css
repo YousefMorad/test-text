@@ -1,11 +1,12 @@
 * {
-    margin: 0;
     padding: 0;
-    font-size: 16px;
+    font-size:120%;
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 body {
-    background-color: #46501C;
+    background-color:#821028;
+    color: white;
 }
 
 button {
@@ -16,24 +17,26 @@ button {
 
 .convert-button {
     margin: 0 auto;
-    background-color: #52411E;
-    border-color: #000;
+    background-color: #53613f;
     color: white;
+    width: auto;
+    min-width: 15vmax;
+    font-weight: 600;
 }
 
 
 .main-section {
     display: grid;
     row-gap: 15px;
-    padding-top: 70px;
+    padding-top: 30px;
     justify-content: center;
     margin-bottom: 10px;
 }
 
 .textarea {
-    font-size: 16px;
-    width: 500px;
-    background-color: #FBF4C0;
+    font-size: 100%;
+    width:60vw;
+    background-color:white;
 }
 
 .rtl {
@@ -49,37 +52,49 @@ button {
 }
 
 #wordsBox {
+    background-color: #941931;
+    padding: 5px;
+    border-radius: 4px;
     display: flex;
     flex-direction: row-reverse;
     flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto;
+    margin: 15px 0px;
 }
 
 .extracted-words-container {
-    margin-top: 10px;
-    width: 50%;
+    width: 60vw;
     margin: 0 auto;
+    margin-top: 8vh;
 }
 
 #word-btn {
-    background: none;
-    border: none;
-    width: min-content;
+    padding: 3px;
+    width: max-content;
     margin: 0;
+    margin-right: 5px;
     color: #fff !important;
 }
 
-.word-btn-red {
-    background-color: #b0312a !important;
-    border-radius: 0;
+.word-btn-selected {
+    background-color: #53613f !important;
+    border-radius: 4px;
 }
 
 #word-btn:focus {
     outline: none;
     box-shadow: none;
 }
-  
+
+#word-btn:hover {
+    background-color: #6e7e57;
+}
+
+h3{
+    margin: auto;
+    display: flex;
+    align-content: center;
+    font-weight: 800;
+}
 
 @media screen and (max-width: 500px) {
     .textarea {
@@ -99,6 +114,64 @@ button {
     }
 }
 
+#ctrl-btns{
+    width: 100%;
+    text-align: center;
+}
+
+.ctrl-btn{
+    display: inline-block;
+    width: max-content;
+    background-color: white;
+}
+
+.ctrl-btn:hover{
+    color: white;
+}
+
+.ctrl-btn.clear:hover{
+    background-color: #6e7e57;
+}
+
+.ctrl-btn.keywords:hover{
+    background-color: #aa203b;
+}
+.ctrl-btn.convert:hover{
+    background-color: rgb(70, 70, 70);
+}
+
+
+.ctrl-btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+#newTextBox{
+    width: 60vw;
+    margin: 0 auto;
+    margin-top: 7vh;
+}
+
+
+.decoratedText{
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #53613f;
+    margin-bottom: 5vh;
+    cursor: pointer;
+}
+
+.decoratedText:hover{
+    background-color: #6e7e57;
+}
+
+img{
+    width: 30px;
+}
 /* #submit-text{
     margin-top: 0.5em;
     width: 10em;
@@ -109,3 +182,4 @@ button {
     border-radius: 0.2em;
     padding-top: 5px;
 } */
+
