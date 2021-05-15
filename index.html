@@ -14,14 +14,15 @@
     <title>Tajawaz</title>
 </head>
 <body>
-    <div class="form-group col-sm">
-        <label for="exampleFormControlTextarea1"><h3>Enter your text below</h3></label>
-        <textarea id="userText" class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
-        <button id="submit-text" type="button" class="btn btn-success" onclick="formatWords()">Done</button>
+    <div class="col-sm main-section">
+        <textarea id="userText" class="form-control textarea rtl" placeholder="اكتب هنا..." rows="7"></textarea>
+        <!-- <textarea id="view-box" class="form-control textarea rtl" rows="7" disabled></textarea> -->
+        <button id="submit-text" type="button" class="btn convert-button" onclick="formatWords()">حول النص</button>
       </div>
-      <br><br>
-      
-      <div style="display: none; flex-direction: row-reverse; flex-wrap: wrap;" id="wordsBox"></div>
+    <div class="extracted-words-container" id="word-choice-container" style="display: none;">
+        <h5 class="rtl">اختر الكلمات التي تود تغيرها</h5>
+        <div id="wordsBox"></div>
+    </div>
       
       <div id="control-btns" class="col-sm" style="display: none; margin-top: 0.5em;">
           <button type="button" class="btn btn-warning" onclick="clearSelection()">Clear selection</button>
