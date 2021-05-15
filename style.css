@@ -73,6 +73,7 @@ button {
     margin: 0;
     margin-right: 5px;
     color: #fff !important;
+    font-size: 25px;
 }
 
 .word-btn-selected {
@@ -154,10 +155,6 @@ h3{
 
 
 .decoratedText{
-    display: flex;
-    flex-direction: row-reverse;
-    flex-wrap: wrap;
-
     padding: 10px;
     border-radius: 4px;
     background-color: #53613f;
