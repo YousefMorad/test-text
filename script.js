@@ -36,6 +36,7 @@ function selectWord(btn){
         wordsDict[btn.innerHTML] = 1;
         for(var button of btns){
             if(button.innerHTML == btn.innerHTML){
+                localStorage[btn.innerHTML] = 'true'
                 button.classList.add("word-btn-selected")
             }
         }
@@ -110,7 +111,7 @@ function selectKeywords(){
     var btns = document.querySelectorAll('.wordbtn')
     
     for(var btn of btns){
-        if(keywords.includes(btn.innerHTML)){
+        if(keywords.includes(btn.innerHTML) || localStorage[btn.innerHTML] == 'true'){
             btn.classList.add("word-btn-selected")
             wordsDict[btn.innerHTML] = 1;
         }
