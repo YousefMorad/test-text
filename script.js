@@ -29,6 +29,7 @@ function selectWord(btn){
         wordsDict[btn.innerHTML] = 1;
         for(var button of btns){
             if(button.innerHTML == btn.innerHTML){
+                localStorage[btn.innerHTML] = 'true'
                 button.classList.add("word-btn-red")
             }
         }
@@ -66,7 +67,7 @@ function clearSelection(){
     var btns = document.querySelectorAll('.wordbtn')
     
     for(var btn of btns){
-        btn.classList.remove("btn-danger")
+        btn.classList.remove("word-btn-red")
         wordsDict[btn.innerHTML] = 0;
     }
 }
@@ -75,8 +76,8 @@ function selectKeywords(){
     var btns = document.querySelectorAll('.wordbtn')
     
     for(var btn of btns){
-        if(keywords.includes(btn.innerHTML)){
-            btn.classList.add("btn-danger")
+        if(keywords.includes(btn.innerHTML) || localStorage[btn.innerHTML] == 'true'){
+            btn.classList.add("word-btn-red")
             wordsDict[btn.innerHTML] = 1;
         }
     }
