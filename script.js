@@ -3,31 +3,33 @@ var wordsList = [];
 function formatWords (){
     var userText = document.getElementById('userText').value
     var wordsBox = document.getElementById('wordsBox')
+    const word_choice_container = document.getElementById('word-choice-container');
     wordsBox.innerHTML = ""
     wordsDict = {}
     wordsList = userText.split(" ")
     for (var word of wordsList){
         wordsDict[word] = 0;
-        wordsBox.innerHTML += "<button type=\"button\" class=\"btn wordbtn\" onclick=\"selectWord(this)\">" + word + "</button>"
+        wordsBox.innerHTML += "<button type=\"button\" class=\"btn wordbtn\" id=\"word-btn\" onclick=\"selectWord(this)\">" + word + "</button>"
     }
-    wordsBox.style.display = "flex"
+
+    word_choice_container.style.display = "grid"
     document.getElementById('control-btns').style.display = "block"
 }
 
 function selectWord(btn){
     btns = document.querySelectorAll('.wordbtn')
-    if(btn.classList.contains("btn-danger")){
+    if(btn.classList.contains("word-btn-red")){
         wordsDict[btn.innerHTML] = 0;
         for(var button of btns){
             if(button.innerHTML == btn.innerHTML){
-                button.classList.remove("btn-danger")
+                button.classList.remove("word-btn-red")
             }
         }
     }else{
         wordsDict[btn.innerHTML] = 1;
         for(var button of btns){
             if(button.innerHTML == btn.innerHTML){
-                button.classList.add("btn-danger")
+                button.classList.add("word-btn-red")
             }
         }
     }
@@ -79,3 +81,7 @@ function selectKeywords(){
         }
     }
 }
+
+const viewResult = (result) => {
+    document.getElementById('view-box').innerHTML = result;
+};
