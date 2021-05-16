@@ -122,4 +122,11 @@ function copyDecoration(box){
     window.getSelection().removeAllRanges();
     window.getSelection().addRange(range);
     document.execCommand("copy");
+    
+    swal({
+        title: "تم نسخ النص",
+        text: "لقد قمت بنسخ النص بنجاح",
+        icon: "success",
+        button: "تم",
+      });
 }
