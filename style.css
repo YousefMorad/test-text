@@ -93,7 +93,7 @@ button {
 h3{
     margin: auto;
     display: flex;
-    align-content: center;
+    align-content:center;
     font-weight: 800;
 }
 
@@ -173,5 +173,6 @@ h3{
 }
 
 img{
-    width: 30px;
+    width: 80px;
 }
+
