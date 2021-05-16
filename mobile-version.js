@@ -12,7 +12,7 @@ $(document).ready(() => {
             convert: {
                 sections_to_hide: [$('#modify-section')[0]],
                 section_to_display: $('#result-section'),
-                children_length: 4,
+                children_length: 3,
                 step: 3,
                 callback: convertText,
             }
