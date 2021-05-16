@@ -81,13 +81,10 @@ function oldArabic(){
 
     for(var word of wordsList){
         if(wordsDict[word]){
-            console.log(word)
             var newWord = word
             for(var letter of word){
                 if (letter in LETTERS_DICT){
-                    console.log(letter, LETTERS_DICT[letter])
                     newWord = newWord.split(letter).join(LETTERS_DICT[letter])
-                    console.log(newWord)
                 }
             }
             newWords.push(newWord)
