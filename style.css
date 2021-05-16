@@ -97,7 +97,20 @@ h3{
     font-weight: 800;
 }
 
+
+img{
+    width: 190px;
+    height: auto;
+}
+
+
+
 @media screen and (max-width: 500px) {
+    img{
+        width: 100px;
+        height: auto;
+    }
+
     *, h3, #word-btn {
         font-size: 16px;
     }
@@ -171,8 +184,3 @@ h3{
 .decoratedText:hover{
     background-color: #6e7e57;
 }
-
-img{
-    width: 80px;
-}
-
