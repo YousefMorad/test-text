@@ -9,30 +9,37 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script> 
-    <script src="keywords.js"></script>
-    <script src="script.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
     <title>Tajawz</title>
 </head>
 <body>
     <div class="col-sm main-section">
-        
         <h3 class="rtl">أدخل النص الخاص بك</h3>
         <textarea id="userText" class="form-control textarea rtl" placeholder="اكتب هنا..." rows="8"></textarea>
         <button id="submit-text" type="button" class="btn convert-button" onclick="formatWords()">حول النص</button>
-      </div>
-    <div class="extracted-words-container" id="word-choice-container" style="display: none;">
-        <h3 class="rtl">اختر الكلمات التي تود تغييرها</h3>
-        <div id="wordsBox"></div>
     </div>
-      
-      <div id="ctrl-btns" style="display: none;">
-        <button type="button" class="btn ctrl-btn convert" onclick="convertText()">قم بالتشفير</button>
-        <button type="button" class="btn ctrl-btn clear" onclick="clearSelection()">ألغ جميع الإختيارات</button>
-        <button type="button" class="btn ctrl-btn keywords" onclick="selectKeywords()">إختر الكلمات المتكررة</button>
+    <div id="modify-section" style="display: none;">
+      <div class="extracted-words-container" id="word-choice-container">
+          <h3 class="rtl">اختر الكلمات التي تود تغييرها</h3>
+          <div id="wordsBox"></div>
+      </div>
+        
+        <div id="ctrl-btns" class="rtl">
+          <button id="convert" type="button" class="btn convert-button convert" onclick="convertText()">قم بالتشفير</button>
+          <button type="button" class="btn convert-button clear" onclick="clearSelection()">ألغ جميع الإختيارات</button>
+          <button type="button" class="btn convert-button keywords" onclick="selectKeywords()">إختر الكلمات المتكررة</button>
+        </div>
+    </div>
+
+      <div id="result-section" style="display: none; margin-top: 20px">
+        <h3 class="rtl">اضغط علي احد الخيارات للنسخ</h3>
+        <div id="newTextBox">
+        </div>
       </div>
       
-
-      <div id="newTextBox"></div>
+      <script src="keywords.js"></script>
+      <script src="script.js"></script>
+      <script src="mobile-version.js" async></script>    
 </body>
 </html>

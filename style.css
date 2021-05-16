@@ -98,6 +98,9 @@ h3{
 }
 
 @media screen and (max-width: 500px) {
+    *, h3, #word-btn {
+        font-size: 16px;
+    }
     .textarea {
         width: auto;
     }
@@ -106,12 +109,15 @@ h3{
         margin: 0 auto;
     }
 
-    h5 {
-        font-size: 16px;
-    }
-
     .extracted-words-container {
         width: 90%;
+    }
+
+    #ctrl-btns{
+        display: grid;
+        gap: 10px;
+        width: 100%;
+        text-align: center;
     }
 }
 
@@ -169,14 +175,3 @@ h3{
 img{
     width: 30px;
 }
-/* #submit-text{
-    margin-top: 0.5em;
-    width: 10em;
-}
-
-#wordsBox{
-    background-color:rgb(255, 241, 227);
-    border-radius: 0.2em;
-    padding-top: 5px;
-} */
-
