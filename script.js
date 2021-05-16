@@ -45,7 +45,7 @@ function selectWord(btn){
 
 function convertText(){
     var newTextBox = document.getElementById('newTextBox')
-    var codes = ['\u0670', '\u06C1', '\u064D', '\u064E', '\u030C', '\u031C']
+    var codes = ['\u0670', '\u06C1', '\u064D', '\u064E']
 
     newTextBox.innerHTML = ""
     for (var code of codes){
