@@ -122,4 +122,15 @@ function copyDecoration(box){
     window.getSelection().removeAllRanges();
     window.getSelection().addRange(range);
     document.execCommand("copy");
+    alertCopyToClipboard();
 }
+
+const alertCopyToClipboard = () => {
+    const current_alert = $('#alert-text')[0];
+    if (current_alert.style.display === 'none') {
+        current_alert.style.display = 'grid';
+        setTimeout(() => {
+            current_alert.style.display = 'none';
+        }, 2000);
+    }
+};

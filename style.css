@@ -175,3 +175,14 @@ h3{
 img{
     width: 30px;
 }
+
+#alert-text {
+    background-color: #333;
+    margin: 20px auto -20px auto;
+    width: 100px;
+    height: 35px;
+}
+
+#alert-text > h3 {
+    font-size: 16px;
+}
